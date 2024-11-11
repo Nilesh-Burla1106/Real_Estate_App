@@ -9,6 +9,8 @@ import Telecaller from './Telecaller';
 import Advisor from './Advisor';
 import Manager from './Manager';
 import Accountant from './Accountant';
+import ForgotPassword from './ForgotPassword';
+import ResetPassword from './ResetPassword';
 
 function App() {
 
@@ -24,6 +26,8 @@ function App() {
           <Route path='/manager' element={<Manager/>}></Route>
           <Route path='/telecaller' element={<Telecaller/>}></Route>
           <Route path='/accountant' element={<Accountant/>}></Route>
+          <Route path='/forgot-password' element={<ForgotPassword/>}></Route>
+          <Route path='/reset-password/:id/:token' element={<ResetPassword/>}></Route>
 
         </Routes>
       </BrowserRouter>

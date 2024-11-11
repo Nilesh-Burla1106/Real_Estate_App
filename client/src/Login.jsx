@@ -69,6 +69,7 @@ const Login = () => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
+
                     <div className="form-group">
                         <label htmlFor="role">Role</label>
                         <select
@@ -85,6 +86,9 @@ const Login = () => {
                             <option value="Accountant">Accountant</option>
                         </select>
                     </div>
+                    <div className="forget-pass">
+                                <Link className="link" to="/forgot-password">Forgot Password?</Link>
+                            </div>
                     <button type="submit" className="btn btn-primary btn-block">
                         Log in
                     </button>
