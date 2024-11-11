@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './css/ForgotPassword.css'; // Don't forget to import your CSS
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
@@ -24,50 +25,29 @@ function ForgotPassword() {
         }
     };
 
-    const formStyle = {
-        maxWidth: '300px',
-        margin: '0 auto',
-        padding: '20px',
-        border: '1px solid #ccc',
-        borderRadius: '5px',
-        textAlign: 'center',
-    };
-
-    const inputStyle = {
-        width: '100%',
-        padding: '10px',
-        margin: '10px 0',
-        boxSizing: 'border-box',
-    };
-
-    const buttonStyle = {
-        width: '100%',
-        padding: '10px',
-        backgroundColor: '#007bff',
-        color: 'white',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
-    };
-
     return (
-        <div style={{ textAlign: 'center' }}>
-            <h2>Forgot Password</h2>
-            {error && <div style={{ color: 'red' }}>{error}</div>} {/* Error message display */}
-            <form onSubmit={handleSubmit} style={formStyle}>
-                <div>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        required
-                        style={inputStyle}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-                <button type="submit" style={buttonStyle}>
-                    Send
-                </button>
-            </form>
+        <div className="forgot-password-page">
+            <div className="forgot-password-card">
+                <h2 className="forgot-password-title">Forgot Password</h2>
+                {error && <div className="error-message">{error}</div>}
+                <form onSubmit={handleSubmit} className="forgot-password-form">
+                    <div>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <button type="submit" className="forgot-password-btn">
+                        Send
+                    </button>
+                </form>
+                <p>
+                    <span>Remember your password? </span>
+                    <a href="/login" className="link">Login here</a>
+                </p>
+            </div>
         </div>
     );
 }
