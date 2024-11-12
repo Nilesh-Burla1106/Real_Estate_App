@@ -20,36 +20,15 @@ const Advisor = () => {
 
         {/* Telecaller Work Section */}
         <div className="admin-card">
-          <h4>Telecaller Work</h4>
-          <p>Oversee telecaller activities, manage call logs, and track communication with clients.</p>
+          <h4>Client Feedback</h4>
+          <p>Feedback by client on pariticular site.</p>
           <button className="admin-button">
-              <Link to="/telecaller" style={{ color: 'white', textDecoration: 'none' }}>
-                  View & Manage Telecaller Work
+              <Link to="/site-visit" style={{ color: 'white', textDecoration: 'none' }}>
+                  Site Visits
               </Link>
           </button>      
         </div>
 
-        {/* Advisor Work Section */}
-        <div className="admin-card">
-          <h4>Advisor Work</h4>
-          <p>Assign and review advisor tasks, track consultations, and monitor client interactions.</p>
-          <button className="admin-button">
-              <Link to="/advisor" style={{ color: 'white', textDecoration: 'none' }}>
-                  Onsite Advisor tasks
-              </Link>
-          </button>  
-        </div>
-
-        {/* Manage Work Section */}
-        <div className="admin-card">
-          <h4>Manage Work</h4>
-          <p>Oversee and manage overall tasks, workflow, and office activities to ensure efficiency.</p>
-          <button className="admin-button">
-              <Link to="/manager" style={{ color: 'white', textDecoration: 'none' }}>
-              Manager tasks
-              </Link>
-          </button>  
-        </div>
       </div>
     </div>
   );

@@ -2,47 +2,60 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../css/Login.css'
+import '../css/Login.css';
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [role, setRole] = useState(''); // New state for role selection
+    const [role, setRole] = useState('');
+    const [loading, setLoading] = useState(false); // Added loading state
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
+        console.log("Selected role:", role);
+        
         axios.post(`http://localhost:3001/login`, { email, password })
             .then(result => {
-                console.log(result);
+                console.log("Backend response:", result.data);
                 const { message, role: userRole } = result.data;
-                if (message === "Success" && role === userRole) { // Check if selected role matches
-                    switch (userRole) {
-                        case "Admin":
-                            navigate('/admin');
-                            break;
-                        case "Manager":
-                            navigate('/manager');
-                            break;
-                        case "Telecaller":
-                            navigate('/telecaller');
-                            break;
-                        case "Advisor":
-                            navigate('/advisor');
-                            break;
-                        case "Accountant":
-                            navigate('/accountant');
-                            break;
-                        default:
-                            navigate('/home');
+    
+                if (message === "Success") {
+                    if (role === userRole) {
+                        console.log("Navigating to:", userRole);
+                        switch (userRole) {
+                            case "Admin":
+                                navigate('/admin');
+                                break;
+                            case "Manager":
+                                navigate('/manager');
+                                break;
+                            case "Telecaller":
+                                navigate('/telecaller');
+                                break;
+                            case "Advisor":
+                                navigate('/advisor');
+                                break;
+                            case "Accountant":
+                                navigate('/accountant');
+                                break;
+                            default:
+                                navigate('/home');
+                        }
+                    } else {
+                        alert("Role mismatch! Please select the correct role.");
                     }
                 } else {
-                    alert(message === "Success" ? "Role mismatch" : message); // Show error message
+                    alert(message); // Show any other error message from the backend
                 }
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log("Error:", err);
+                alert("Something went wrong, please try again.");
+            });
     };
-
+    
     return (
         <div className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
             <div className="card p-4 shadow-lg" style={{ maxWidth: '400px', width: '100%' }}>
@@ -88,10 +101,10 @@ const Login = () => {
                         </select>
                     </div>
                     <div className="forget-pass">
-                                <Link className="link" to="/forgot-password">Forgot Password?</Link>
-                            </div>
-                    <button type="submit" className="btn btn-primary btn-block">
-                        Log in
+                        <Link className="link" to="/forgot-password">Forgot Password?</Link>
+                    </div>
+                    <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+                        {loading ? 'Logging in...' : 'Log in'}
                     </button>
                 </form>
                 <p className="text-center mt-3">
