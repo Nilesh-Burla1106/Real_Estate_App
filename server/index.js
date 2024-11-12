@@ -52,7 +52,7 @@ app.post('/register', (req, res) => {
         .catch(err => res.json(err));
 });
 
-// Login endpoint with role handling
+
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     EmployeeModel.findOne({ email: email })
@@ -101,7 +101,7 @@ app.post('/forgot-password', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
-// Reset Password Route
+
 app.post('/reset-password/:id/:token', (req, res) => {
     const { id, token } = req.params;
     const { password } = req.body;

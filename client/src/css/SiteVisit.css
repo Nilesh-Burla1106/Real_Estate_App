@@ -1,0 +1,57 @@
+.site-visit-form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .site-visit-form .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .site-visit-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #555;
+  }
+  
+  .site-visit-form input,
+  .site-visit-form select,
+  .site-visit-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+  }
+  
+  .site-visit-form textarea {
+    resize: vertical;
+  }
+  
+  .site-visit-form .submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .site-visit-form .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
